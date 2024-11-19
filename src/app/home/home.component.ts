@@ -5,6 +5,8 @@ import { SearchBarComponent } from '../components/search-bar/search-bar.componen
 import { GaleryCardComponent } from '../components/galery-card/galery-card.component';
 import { Supabase } from '../utils/images';
 import { Property, PropertyService } from '../services/supabase/property.service';
+import { UserService } from '../auth/services/user.service'; 
+
 interface filtro {
 city? : null|string,
 country? : null|string,
@@ -40,10 +42,16 @@ interface user {
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  constructor(private propertyService: PropertyService) {}
+  user = {
+    profilePicture: '',
+    fullName: '',
+    email: ''
+  };
+  defaultProfileImage = '/assets/no-avatar.jpg';
+  constructor(private propertyService: PropertyService, private userService: UserService) {}
   index="/index?search="
 
-  isOwner: boolean = false;
+
 
   // Listas que guardan el material filtrado
   casas:Property[]=[]
@@ -58,11 +66,26 @@ export class HomeComponent implements OnInit {
   currentIndex = 0;
 
   ngOnInit(): void {
-    // Verificar el rol del usuario desde localStorage
-    const userRole = localStorage.getItem('currentUserRole');
-    this.isOwner = userRole === 'propietario';
-    this.updatebuyerhouse();
+    // Cargar los datos del usuario desde el localStorage
+    const storedUser = JSON.parse(localStorage.getItem('user') || '{}');
+    if (storedUser) {
+      this.user.profilePicture = storedUser.profilePicture || this.defaultProfileImage;
+      this.user.fullName = storedUser.fullName || 'Nombre no disponible';
+      this.user.email = storedUser.email || 'Email no disponible';
+    }
   }
+  updateUserProfile() {
+    
+    const updatedUser = {
+      profilePicture: this.user.profilePicture,
+      fullName: this.user.fullName,
+      email: this.user.email
+    };
+
+    // Guardamos la nueva imagen y el correo en el localStorage
+    localStorage.setItem('user', JSON.stringify(updatedUser));
+  }
+
 
   nextImage() {
     this.currentIndex = (this.currentIndex + 1) % this.images.length;

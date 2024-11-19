@@ -1,67 +1,76 @@
-<main>
-  <button (click)="submitget()">mis reservas</button>
+<main class="todo">
+  <button class="btn-primary" (click)="submitget()">Mis reservas</button>
 
   <form [formGroup]="bookingForm" (ngSubmit)="onSubmit()">
-    <div class="login-container">
+    <div class="form-container">
       <label for="listingId">ID de la propiedad:</label>
-      <input type="number" id="listingId" formControlName="listingId" required 
-            [class.invalid]="!bookingForm.get('listingId')?.valid && bookingForm.get('listingId')?.touched" />
+      <input
+        type="number"
+        id="listingId"
+        formControlName="listingId"
+        required
+        [class.invalid]="!bookingForm.get('listingId')?.valid && bookingForm.get('listingId')?.touched"
+      />
       <div *ngIf="!bookingForm.get('listingId')?.valid && bookingForm.get('listingId')?.touched" class="error-message">
         <small *ngIf="bookingForm.get('listingId')?.hasError('required')">El ID de la propiedad es obligatorio.</small>
       </div>
 
-    
       <label for="startDate">Fecha de inicio:</label>
-      <input type="date" id="startDate" formControlName="startDate" required 
-            [class.invalid]="!bookingForm.get('startDate')?.valid && bookingForm.get('startDate')?.touched" />
+      <input
+        type="date"
+        id="startDate"
+        formControlName="startDate"
+        required
+        [class.invalid]="!bookingForm.get('startDate')?.valid && bookingForm.get('startDate')?.touched"
+      />
       <div *ngIf="!bookingForm.get('startDate')?.valid && bookingForm.get('startDate')?.touched" class="error-message">
         <small *ngIf="bookingForm.get('startDate')?.hasError('required')">La fecha de inicio es obligatoria.</small>
       </div>
 
-     
       <label for="endDate">Fecha de fin:</label>
-      <input type="date" id="endDate" formControlName="endDate" required 
-            [class.invalid]="!bookingForm.get('endDate')?.valid && bookingForm.get('endDate')?.touched" />
+      <input
+        type="date"
+        id="endDate"
+        formControlName="endDate"
+        required
+        [class.invalid]="!bookingForm.get('endDate')?.valid && bookingForm.get('endDate')?.touched"
+      />
       <div *ngIf="!bookingForm.get('endDate')?.valid && bookingForm.get('endDate')?.touched" class="error-message">
         <small *ngIf="bookingForm.get('endDate')?.hasError('required')">La fecha de fin es obligatoria.</small>
       </div>
 
-      
       <label for="totalPrice">Precio total:</label>
-      <input type="number" id="totalPrice" formControlName="totalPrice" required 
-            [class.invalid]="!bookingForm.get('totalPrice')?.valid && bookingForm.get('totalPrice')?.touched" />
+      <input
+        type="number"
+        id="totalPrice"
+        formControlName="totalPrice"
+        required
+        [class.invalid]="!bookingForm.get('totalPrice')?.valid && bookingForm.get('totalPrice')?.touched"
+      />
       <div *ngIf="!bookingForm.get('totalPrice')?.valid && bookingForm.get('totalPrice')?.touched" class="error-message">
         <small *ngIf="bookingForm.get('totalPrice')?.hasError('required')">El precio total es obligatorio.</small>
       </div>
-      
-    
+
       <button type="submit" [disabled]="!bookingForm.valid" class="btn btn-primary">Realizar reserva</button>
 
-    
       <div class="regresar">
         <p><a routerLink="/home">Regresar</a></p>
       </div>
-
     </div>
   </form>
 
-  <div class="login-container">
+  <div class="reservations-container">
     <label for="listingId">ID de la propiedad:</label>
-  @for (book of booking[0]; track $index) {
-
-    <div *ngIf="book.canceled == null"  class="contact-item" >
-      <button classname="deletebutton" (click)="cancelarReserva(book.booking_id)">Eliminar</button>
-      <h2>{{"reserva"+book.booking_id}}</h2>
-      <label>{{book.created_at}}</label>
-      <label>{{book.start_date}}</label>
-      <label>{{book.total_price}}</label>
-      <label>{{book.end_date}}</label>
-      <label>{{book.created_at}}</label>
+    @for (book of booking[0]; track $index) {
+    <div *ngIf="book.canceled == null" class="reservation-item">
+      <button class="reservation-actions" (click)="cancelarReserva(book.booking_id)">Eliminar</button>
+      <h2 class="reservation-details">{{"Reserva " + book.booking_id}}</h2>
+      <label class="reservation-details">{{book.created_at}}</label>
+      <label class="reservation-details">{{book.start_date}}</label>
+      <label class="reservation-details">{{book.total_price}}</label>
+      <label class="reservation-details">{{book.end_date}}</label>
+      <label class="reservation-details">{{book.created_at}}</label>
     </div>
-  
-  }
-
+    }
   </div>
-
-
 </main>

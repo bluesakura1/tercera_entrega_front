@@ -1,25 +1,15 @@
-/* Estilos generales */
-* {
+body {
+  background: #315196;
+  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: sans-serif;
+  color: #fff;
+  
 }
-.deletebutton {
-  background-color: #dc3545;
-  color: white;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.3s;
-}
-s
 .regresar a {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #007bff; 
+  background-color: #007bff;
   color: white; 
   font-size: 16px;
   text-decoration: none; 
@@ -30,125 +20,134 @@ s
   transition: background-color 0.3s, transform 0.2s;
 }
 
-
+/* Efecto hover */
 .regresar a:hover {
-  background-color: #0056b3; 
+  background-color: #0056b3;
   transform: scale(1.05); 
 }
 
-
+/* Efecto de enfoque (focus) para accesibilidad */
 .regresar a:focus {
   outline: none;
-  box-shadow: 0 0 0 2px #ffcc00;
+  box-shadow: 0 0 0 2px #ffcc00; 
 }
-
-app-root {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  width: 100%;
-}
-
 
 main {
-  background-image: url('https://jzoykxtgshtojpikzhhd.supabase.co/storage/v1/object/public/homes/fondo.jpeg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  color: white;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px;
+  border: 7px solid #000;
 }
 
-/* Contenedor del formulario */
-.login-container {
-  max-width: 400px;
-  width: 100%;
-  background: rgba(82, 127, 141, 0.9);
+form {
+  flex: 1;
+  min-width: 300px;
+}
+
+.form-container,
+.reservations-container {
+  background-color: #316f92;
+  padding: 100px;
   border-radius: 10px;
-  padding: 40px 20px;
-  margin: auto;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 80px 12px rgba(0, 225, 255, 0.1);
+  flex: 1;
+  min-width: 300px;
 }
 
-/* Título */
-.login-container h2 {
-  font-size: 24px;
-  text-align: center;
-  margin-bottom: 20px;
-  color: #050505;
+.reservation-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #30a9be;
+  border: 6px solid #3a3a3a;
+  border-radius: 20px;
+  margin: 10px 0;
+  padding: 15px;
+  box-shadow: 0 10px 23px rgb(24, 24, 24);
+  transition: transform 0.5s, box-shadow 0.2s;
+  
 }
 
-/* Estilo de los campos de entrada */
-.login-container label {
+.reservation-item:hover {
+  transform: scale(1.11);
+  box-shadow: 0 2px 1px rgb(255, 115, 0);
+}
+
+.reservation-details {
+  text-align: left;
+  color: #000;
+}
+
+.form-container label {
   display: block;
-  margin-top: 20px;
-  font-size: 16px;
-  color: white;
+  margin-bottom: 5px;
+  color: #000;
+  font-weight: bold;
 }
 
-.login-container input {
+.form-container input {
   width: 100%;
   padding: 10px;
-  border: none;
-  background: #f2f2f2;
-  font-size: 16px;
-  outline: none;
+  margin-bottom: 15px;
+  border: 3px solid #000000;
   border-radius: 5px;
-  margin-top: 10px;
+  box-sizing: border-box;
 }
 
-/* Mensajes de error */
-.error-message {
-  color: red;
-  font-size: 14px;
-  margin-top: 5px;
-}
-
-/* Estilo para los botones */
-.btn {
-  display: block;
-  width: 100%;
-  padding: 12px;
-  margin-top: 20px;
-  border-radius: 8px;
-  text-align: center;
-  font-size: 17px;
+.form-container .btn-primary {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
   cursor: pointer;
   font-weight: bold;
-  transition: background 0.3s;
+  background: #cc0101;
+  color: white;
+  transition: background 0.2s;
+}
+.reservation-actions {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  background: #cc0101;
+  color: rgb(14, 14, 14);
+  transition: background 0.2s;
+}
+.btn-primary{
+  padding: 10px 10px;
+  cursor: pointer;
+  margin: 10px 20px;
+  border-radius: 10%;
+  font-size: 10px;
+}
+.todo{
+  background: #225977;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+}
+.reservation-actions .btn:hover {
+  background: #2f3121;
 }
 
-.btn-primary {
-  background-color: #0ad156;
-  color: black;
+.form-container .btn-primary:disabled {
+  background: #ccc;
+  cursor: not-allowed;
 }
 
-.btn-primary:hover {
-  background-color: #08a148;
+.form-container .btn-primary:hover:enabled {
+  background: #1c7432;
 }
 
-
-@media (max-width: 768px) {
-  main {
-      padding: 20px;
-  }
-
-  .login-container {
-      padding: 20px 15px;
-  }
+.form-container, regresar  {
+  color: #fff;
+  text-decoration: none;
 }
 
-@media (max-width: 480px) {
-  .login-container h2 {
-      font-size: 20px;
-  }
-
-  .login-container input,
-  .btn {
-      padding: 10px;
-      font-size: 15px;
-  }
+.form-container .regresar a:hover {
+  text-decoration: underline;
 }

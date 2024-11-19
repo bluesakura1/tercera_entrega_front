@@ -6,81 +6,87 @@
 <!-- * * * * * * * * * Delete the template below * * * * * * * * * -->
 <!-- * * * * * * * to get started with your project! * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-<header>
-  <!-- Avatar a la izquierda -->
-  <div id="profile">
-    <img class="avatar" alt="avatar" />
-    <span id="userName">Dilan</span>
-  </div>
-
-  <!-- Menú centrado -->
-  <nav>
-    <ul>
-      <li><a routerLink="/home">Inicio</a></li>
-      <li><a routerLink="/mi-perfil">Mi Perfil</a></li>
-
-      <!-- Menú exclusivo para propietarios -->
-
-      <li><a routerLink="/añadir-propiedad">Añadir Propiedad</a></li>
-      <li><a routerLink="/lista-de-propiedades">Lista de Propiedades</a></li>
-      <li><a routerLink="/editar-propiedad/1">Editar Propiedad</a></li>
-
-      <!-- Menú exclusivo para usuarios normales -->
-
-      <li><a routerLink="/reservas">Mis Reservas</a></li>
-      <li><a routerLink="/mensajes">Mensajes</a></li>
-      <li><a routerLink="/valoraciones">Reseñas</a></li>
-
-      <li><a routerLink="/notificaciones">Notificaciones</a></li>
-    </ul>
-  </nav>
-
-  <div class="logout-button">
-    <p><a routerLink="/login">Cerrar sesion</a></p>
-  </div>
-</header>
-
-<main class="main">
-  <!-- Carrusel de imágenes -->
-  <div class="carousel">
-    <img
-      [src]="images[currentIndex]"
-      alt="Imagen del carrusel"
-      class="carousel-image"
-    />
-    <div class="controls">
-      <button (click)="prevImage()" class="control-button">Anterior</button>
-      <button (click)="nextImage()" class="control-button">Siguiente</button>
-    </div>
-    <button (click)="filter()">guardar cambios y buscar casas</button>
-  </div>
-
-  <!-- Contenido de búsqueda y visualización de propiedades -->
-  <div class="content">
-    <div>
-      <app-search-bar (setCriterios)="setFilters($event)"></app-search-bar>
-      <div class="flex-content">
-        <div class="flex-content">
-          @for (item of this.casas; track $index) {
-          <div class="card-body card-filter">
-            <h5 class="card-title">{{ item.title }}</h5>
-            <p class="card-text">{{ item.description }}</p>
-            <label class="card-text">{{
-              "Precio por noche " + item.price_per_nig
-            }}</label>
-            <a href="{{ this.index + item.id }}">
-              <button class="button">Ver más</button></a
-            >
-          </div>
-          }
+<main class="todo">
+  <header>
+    <section id="profile">
+      <div class="avatar-container">
+        <img [src]="user.profilePicture || defaultProfileImage" alt="Foto de perfil" class="avatar" />
+        <div>
+          <span id="userName">{{ user.fullName }}</span>
+          
         </div>
-        <p *ngIf="this.casas.length <= 0" class="card-filter">No hay propiedades disponibles.</p>
+      </div>
+    </section>
+
+    <!-- Menú centrado -->
+    <nav>
+      <ul>
+        <li><a routerLink="/home">Inicio</a></li>
+        <li><a routerLink="/mi-perfil">Mi Perfil</a></li>
+
+        <!-- Menú exclusivo para propietarios -->
+
+        <li><a routerLink="/añadir-propiedad">Añadir Propiedad</a></li>
+        <li><a routerLink="/lista-de-propiedades">Lista de Propiedades</a></li>
+        <li><a routerLink="/editar-propiedad/1">Editar Propiedad</a></li>
+
+        <!-- Menú exclusivo para usuarios normales -->
+
+        <li><a routerLink="/reservas">Mis Reservas</a></li>
+        <li><a routerLink="/mensajes">Mensajes</a></li>
+        <li><a routerLink="/valoraciones">Reseñas</a></li>
+
+        <li><a routerLink="/notificaciones">Notificaciones</a></li>
+      </ul>
+    </nav>
+
+    <div class="logout-button">
+      <p><a routerLink="/login">Cerrar sesion</a></p>
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- Carrusel de imágenes -->
+    <div class="carousel">
+      <img
+        [src]="images[currentIndex]"
+        alt="Imagen del carrusel"
+        class="carousel-image"
+      />
+      <div class="controls">
+        <button (click)="prevImage()" class="control-button">Anterior</button>
+        <button (click)="nextImage()" class="control-button">Siguiente</button>
+      </div>
+      <button (click)="filter()">guardar cambios y buscar casas</button>
+    </div>
+
+    <!-- Contenido de búsqueda y visualización de propiedades -->
+    <div class="content">
+      <div>
+        <app-search-bar (setCriterios)="setFilters($event)"></app-search-bar>
+        <div class="flex-content">
+          <div class="flex-content">
+            @for (item of this.casas; track $index) {
+            <div class="card-body card-filter">
+              <h5 class="card-title">{{ item.title }}</h5>
+              <p class="card-text">{{ item.description }}</p>
+              <label class="card-text">{{
+                "Precio por noche " + item.price_per_nig
+              }}</label>
+              <a href="{{ this.index + item.id }}">
+                <button class="button">Ver más</button></a
+              >
+            </div>
+            }
+          </div>
+          <p *ngIf="this.casas.length <= 0" class="card-filter">No hay propiedades disponibles.</p>
+        </div>
       </div>
     </div>
-  </div>
-</main>
+  </main>
 
+  <router-outlet></router-outlet>
+</main>
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
@@ -88,4 +94,4 @@
 <!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
-<router-outlet></router-outlet>
+

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { SupabaseService } from '../services/supabase/supabase.service';
 import { Supabase } from '../utils/images';
 import { ReviewService } from '../services/supabase/review.service';
@@ -26,7 +26,7 @@ interface Casa {
 @Component({
   selector: 'app-index',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.css'],  
 })

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { environment } from '../../../environments/environment'; 
 
 @Injectable({
@@ -8,8 +8,24 @@ import { environment } from '../../../environments/environment';
 })
 export class UserService {
   private baseUrl: string = environment.apiUrl;  
+  private currentUser = localStorage.getItem('user');
 
   constructor(private http: HttpClient) {}
+
+  getProfile(email: string): Observable<any> {
+    return of(JSON.parse(localStorage.getItem('user') || '{}'));
+  }
+  
+  updateProfile(profileData: any): Observable<any> {
+    localStorage.setItem('user', JSON.stringify(profileData));
+    return of({ success: true });
+  }
+
+  
+  get currentUserName(): string {
+    return this.currentUser || '';
+  }
+
 
   /**
    * Método para iniciar sesión

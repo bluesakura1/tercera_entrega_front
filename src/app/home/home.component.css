@@ -3,7 +3,7 @@ header {
   justify-content: space-between; 
   align-items: center; 
   padding: 10px 20px; 
-  background-color:  #4e9952; 
+  background-color:  #dfe6e0; 
   border-bottom: 1px solid #ccc; 
 }
 
@@ -16,33 +16,6 @@ button {
   cursor: pointer; 
   border-radius: 5px; 
   transition: background-color 0.3s, transform 0.2s;
-}
-.card-filter{
-  padding: 10px; 
-  margin: 0.5rem;
-  width: 13.5rem; 
-  height: 25rem; 
-  border: 2px solid  #91979e; 
-  border-radius: 9px 9px 9px 9px; 
-  outline: none; 
-}
-
-.card-img-top{
-  max-width: 12rem; 
-  height: 12rem; 
-  
-
-}
-
-button{
-  background-color: #0d6efd; /* Color de fondo inicial */
-  color: #ffffff; /* Color del texto */
-  border: none; /* Sin borde */
-  padding: 10px 20px; /* Espaciado interno */
-  font-size: 16px; /* Tamaño de fuente */
-  cursor: pointer; /* Cambiar cursor a mano */
-  border-radius: 5px; /* Bordes redondeados */
-  transition: background-color 0.3s ease, transform 0.2s ease; /* Transición de color y transformación */
 }
 
 footer {
@@ -100,6 +73,8 @@ footer {
 }
 
 .card-filter {
+  display: flex; 
+  padding: 10px; 
   max-width: 65%; 
   border: 2px solid #0d6efd; 
   border-radius: 9px; 
@@ -112,13 +87,38 @@ footer {
 }
 
 .avatar {
+  font-size: 1.5rem;
   width: 50px;
-  height: 50px; 
-  border-radius: 50%; 
-  margin-right: 10px;
-  border: 2px solid #007bff; 
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 25px;
+  border: 5px solid #007bff;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
+
+#userEmail {
+  font-size: 1.5rem;
+  color: #fcfcfc;
+  padding: 0px 15px;
+  
+}
+
+.todo{
+  
+  justify-content: space-between;
+  align-items: center;
+  background: #30a9be;
+  border: 3px solid #000;
+  border-radius: 20px;
+  margin: 10px 0;
+  padding: 15px;
+  box-shadow: 0 4px 6px green;
+  transition: transform 0.5s, box-shadow 0.2s;
+  cursor: pointer;
+
+}
+
+
 
 #userName {
   font-weight: bold; 

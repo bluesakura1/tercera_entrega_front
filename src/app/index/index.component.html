@@ -1,38 +1,33 @@
-<header>
-  <div id="profile">
-    <img src="assets/casa2.jpeg" class="avatar" alt="avatar" />
-    <span id="userName">Dilan</span>
-  </div>
-  <nav>
-    <ul>
-      <a href="/home">
-        <label>Home</label>
-      </a>
-      <li><a href="/mi-perfil">Mi perfil</a></li>
-      <li><a href="/gestion-propiedades">Gestión de propiedades</a></li>
-      <li><a href="/login/login.component.html">Cerrar sesión</a></li>
-    </ul>
-  </nav>
-</header>
+<main>
+  <header>
+    <nav>
+      <ul>
+        <li><a routerLink="/home">Inicio</a></li>
+        <li><a routerLink="/mi-perfil">Mi Perfil</a></li>
+        
+      </ul>
+    </nav>
+  </header>
 
-<body>
-  <div class="side-container">
-    <div class="col-md-6">
-      <img
-        [src]="getHomeInfo().image"
-        class="img-fluid"
-        alt="{{ getHomeInfo().title }}"
-      />
+  <body>
+    <div class="side-container">
+      <div class="col-md-6">
+        <img
+          [src]="getHomeInfo().image"
+          class="img-fluid"
+          alt="{{ getHomeInfo().title }}"
+        />
+      </div>
+      <div class="col-md-6">
+        <h2>{{ getHomeInfo().title }}</h2>
+        <p><strong>Descripción:</strong> {{ getHomeInfo().description }}</p>
+        <p><strong>Valor:</strong> {{ getHomeInfo().price }}</p>
+        <p><strong>Dueño:</strong> {{ getHomeInfo().owner }}</p>
+        <p><strong>Zona:</strong> {{ getHomeInfo().area }}</p>
+        <p><strong>Negociable:</strong> {{ getHomeInfo().negotiable }}</p>
+        <p><strong>Tipo:</strong> {{ getHomeInfo().type }}</p>
+      </div>
     </div>
-    <div class="col-md-6">
-      <h2>{{ getHomeInfo().title }}</h2>
-      <p><strong>Descripción:</strong> {{ getHomeInfo().description }}</p>
-      <p><strong>Valor:</strong> {{ getHomeInfo().price }}</p>
-      <p><strong>Dueño:</strong> {{ getHomeInfo().owner }}</p>
-      <p><strong>Zona:</strong> {{ getHomeInfo().area }}</p>
-      <p><strong>Negociable:</strong> {{ getHomeInfo().negotiable }}</p>
-      <p><strong>Tipo:</strong> {{ getHomeInfo().type }}</p>
-    </div>
-  </div>
-  <button class="button">Contactar</button>
-</body>
+    <button class="button">Contactar</button>
+  </body>
+</main>
