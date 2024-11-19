@@ -1,0 +1,18 @@
+<main>
+  <div class="property-list">
+    <h2>Lista de Propiedades</h2>
+
+    <ul>
+      <li *ngFor="let propiedad of this.casas.listing">
+        <div class="property-item">   
+          <span>{{ "titulo :"+propiedad.title }}</span>
+          <span>{{ "direcion :"+propiedad.address }}</span>
+          <span>{{ "precio :"+propiedad.price_per_nig }}</span>
+          <button (click)="editProperty(propiedad.id)">Editar</button>
+          <button (click)="deleteProperty(propiedad.id)">Eliminar</button>
+        </div>
+      </li>
+      <button (click)="goHome()">Volver al Home</button>
+    </ul>
+  </div>
+</main>

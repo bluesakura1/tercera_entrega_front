@@ -1,0 +1,106 @@
+/* Estilos generales */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+app-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+}
+button[type="submit"]:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+button {
+  background-color: #0ad156;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 50px;
+}
+
+main {
+  background-image: url('https://jzoykxtgshtojpikzhhd.supabase.co/storage/v1/object/public/homes/fondo.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Contenedor de la lista */
+.property-list {
+  width: 100%;
+  max-width: 800px;
+  background: rgba(82, 127, 141, 0.9);
+  border-radius: 10px;
+  padding: 40px 20px;
+  margin: auto;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  color: white;
+}
+
+.property-list h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.property-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+}
+
+.property-item span {
+  font-size: 18px;
+}
+
+.property-item button {
+  padding: 8px 12px;
+  border: none;
+  background: #0ad156;
+  color: white;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.property-item button:hover {
+  background-color: #08a148;
+}
+
+.property-item button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #ffcc00;
+}
+
+@media (max-width: 768px) {
+  .property-list {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .property-item span {
+    font-size: 16px;
+  }
+
+  .property-item button {
+    font-size: 12px;
+  }
+}

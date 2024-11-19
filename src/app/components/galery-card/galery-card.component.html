@@ -1,0 +1,16 @@
+<div class="card-filter">
+  <!--<input [formControl]="casa"  required />-->
+  <div>
+    <img
+      [src]="cardCasainfo.images"
+      class="card-img-top"
+      alt="Casa Oferta"
+    />
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{ cardCasainfo.title }}</h5>
+    <p class="card-text">{{ cardCasainfo.description }}</p>
+    <a href={{this.index+cardCasainfo.id}}> <button class="button">Ver más</button></a>
+  </div>
+</div>
+

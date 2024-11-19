@@ -1,0 +1,32 @@
+<main>
+  <h2>Editar Propiedad</h2>
+  <form [formGroup]="editPropertyForm" (ngSubmit)="onSubmit()">
+    <label>Título:</label>
+    <input type="text" formControlName="title" required>
+
+    <label>Precio:</label>
+    <input type="number" formControlName="price" required>
+
+    <label>Descripción:</label>
+    <input type="text" formControlName="description" required>
+
+    <label>País:</label>
+    <input type="text" formControlName="country" required>
+
+    <label>Ciudad:</label>
+    <input type="text" formControlName="city" required>
+
+    <label>Habitaciones:</label>
+    <input type="number" formControlName="rooms" required>
+
+    <label>Imagen:</label>
+    <input type="text" formControlName="image" required>
+
+    <label>Ubicación en el mapa:</label>
+    <input type="text" formControlName="mapSrc" required>
+
+    <button type="submit" [disabled]="!editPropertyForm.valid">Guardar Cambios</button>
+
+    <button (click)="goHome()">Volver al Home</button>
+  </form>
+</main>

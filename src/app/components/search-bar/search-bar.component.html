@@ -1,0 +1,95 @@
+<form>
+  <!-- Searchbar y boton de guardar parametros -->
+  <div class="search-container">
+    <input
+      class="search-input"
+      [formControl]="searchtermn"
+      name="searchbar"
+      required
+    />
+    <!-- boton para guardar los filtros de busqueda y de consulta por criterios -->
+  </div>
+  <div class="card-filter" name="contenedor-filtros-center">
+    <div class="margins" name="contenedor ubicación">
+      <!-- Control de selecion de pais segun el pais selecionado -->
+
+      <select class="margins" [formControl]="country" name="pais" id="cars">
+        <option hidden value="">pais</option>
+        <option value="">mostrar todo</option>
+        <!-- for para compilar los diferentes paises sin repetirse -->
+        @for (item of this.casas; track item.title) {
+        @if(this.listCountrys.includes(item.country)==false){
+        {{
+          this.listCountrys.push(item.country)
+        }}
+        } }
+        <!-- for que trae los paises como opiones  -->
+        @for (item of listCountrys; track item) { @if(item!="") {
+        <option value="{{ item }}">{{ item }}</option>
+        } }
+      </select>
+      <div>
+        <!-- Control de selecion de ciudad segun el pais selecionado -->
+
+        <select class="margins" [formControl]="city" name="ciudad" id="city">
+          <option hidden value="">ciudad</option>
+          <option value="">mostrar todo</option>
+          @for (item of casas; track item.title) { @if(this.country.value!==""){
+          @if(item.country==this.country.value){
+          <option value="{{ item.city }}">{{ item.city }}</option>
+          } } }
+        </select>
+
+      </div>
+    </div>
+
+    <div class="margins" name="contenedor fecha">
+        <!-- Control de selecion de numero de habitaciones de 1 a 3 y si es 4 se buscaran mayores a 3 -->
+
+      <label>numero de baños</label>
+      <input type="number" name="num_bathrooms" [formControl]="num_bathrooms" required />
+      <div>
+        <label>numero de habitaciones</label>
+
+        <input type="number" name="num_bedrooms" [formControl]="num_bedrooms" required />
+      </div>
+    </div>
+
+    <!-- Filtro por intevalo de precio -->
+
+    <div class="margins contenedor precio">
+      <label>precio por noche</label>
+      <input type="number" name="price_per_nig" [formControl]="price_per_nig" required />
+      <div>
+        <label>maximo de huespedes</label>
+        <input
+          class=""
+          type="number"
+          name="max_guests"
+          defaultValue="max"
+          [formControl]="max_guests"
+          required
+        />
+      </div>
+    </div>
+
+    <div>
+      <!-- boton de reseteo de los campos-->
+      <button
+        type="button"
+        (click)="$event.preventDefault(); setReset()"
+        class="button"
+        type="submit"
+      >
+        Reset
+      </button>
+      <button
+      class="button"
+      (click)="$event.preventDefault(); enviarValor()"
+    >
+      Aplicar
+    </button>
+
+    </div>
+  </div>
+</form>

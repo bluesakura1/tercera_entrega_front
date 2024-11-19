@@ -1,0 +1,140 @@
+/* Estilos generales */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+main {
+  background-image: url('https://jzoykxtgshtojpikzhhd.supabase.co/storage/v1/object/public/homes/fondo.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Estilo del contenedor de notificaciones */
+.notifications-container {
+  max-width: 600px;
+  width: 100%;
+  background: rgba(22, 119, 51, 0.9);
+  border-radius: 10px;
+  padding: 40px 20px;
+  margin: auto;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Título de las notificaciones */
+.notifications-container h2 {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #050505;
+}
+
+/* Estilo de los elementos de la lista de notificaciones */
+.notifications-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.notification-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.notification-item .notification-content {
+  flex: 1;
+}
+
+.notification-item p {
+  margin: 0;
+  font-size: 16px;
+  color: #b40606;
+}
+
+.notification-item small {
+  display: block;
+  font-size: 12px;
+  color: #ce1a1a;
+}
+
+.delete-button {
+  background-color: #dc3545;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.delete-button:hover {
+  background-color: #c82333;
+}
+
+/* Mensaje de no notificaciones */
+.no-notifications {
+  text-align: center;
+  font-size: 18px;
+  color: #ffffff;
+}
+
+/* Efecto hover y enfoque (focus) */
+.delete-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #ffcc00;
+}
+
+.regresar a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white; 
+  font-size: 16px;
+  text-decoration: none; 
+  border-radius: 5px; 
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Efecto hover para el enlace regresar */
+.regresar a:hover {
+  background-color: #0056b3;
+  transform: scale(1.05); 
+}
+
+/* Efecto de enfoque (focus) para accesibilidad */
+.regresar a:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #ffcc00; 
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .notifications-container {
+    padding: 20px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .notifications-container h2 {
+    font-size: 20px;
+  }
+
+  .notification-item p, .notification-item small {
+    font-size: 14px;
+  }
+}

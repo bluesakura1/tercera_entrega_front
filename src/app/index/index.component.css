@@ -1,0 +1,80 @@
+/* Estilo para el encabezado */
+header {
+    display: flex;                 
+    justify-content: space-between; 
+    align-items: center;        
+    padding: 10px 20px;          
+    background-color: #f8f9fa;   
+    border-bottom: 1px solid #ccc; 
+  }
+
+  #profile {
+    display: flex;               
+    align-items: center;       
+  }
+  
+  .avatar {
+    width: 50px;              
+    height: 50px;             
+    border-radius: 50%;       
+    margin-right: 10px;       
+    border: 2px solid #007bff; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+  }
+  
+  #userName {
+    font-weight: bold;        
+    font-size: 1.2rem;       
+    color: #333;             
+  }
+  
+  ul {
+    list-style: none;          
+    padding: 0;               
+    margin: 0; 
+    display: flex;                
+  }
+  
+  nav {
+    text-align: left;         
+  }
+  li {
+    margin-left: 20px;      
+  }
+  a:hover {
+    text-decoration: underline; 
+  }
+/* Estilo para el pie de página */
+button{
+    background-color: #0d6efd; /* Color de fondo inicial */
+    color: #ffffff; /* Color del texto */
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Espaciado interno */
+    font-size: 16px; /* Tamaño de fuente */
+    cursor: pointer; /* Cambiar cursor a mano */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transición de color y transformación */}
+footer {
+    background-color: #0d6efd; /* Color de fondo azul primario */
+    color: #ffffff; /* Texto en blanco */
+    text-align: center; /* Centrar el texto */
+    padding: 1.5rem; /* Espaciado interno (p-4) */
+    margin-top: 3rem; /* Margen superior (mt-5) */
+}
+
+/* Estilo para las imágenes */
+.img-fluid {
+    max-width: 100%; /* Asegura que la imagen no exceda el ancho del contenedor */
+    height: auto; /* Mantiene la relación de aspecto */
+}
+
+/* Estilo para los detalles de la propiedad */
+.side-container {
+    display: flex; /* Usar flexbox para organizar los elementos */
+}
+
+/* Estilo para columnas */
+.col-md-6 {
+    flex: 1; /* Cada columna ocupará el mismo espacio */
+    padding: 10px; /* Espaciado interno entre columnas */
+}

@@ -1,0 +1,30 @@
+<div class="owner-profile-container">
+  <h1>Perfil de Propietario</h1>
+  <form id="ownerProfileForm" (ngSubmit)="updateOwnerProfile()">
+    <label for="nombreCompleto">Nombre Completo:</label>
+    <input type="text" id="nombreCompleto" [(ngModel)]="ownerProfile.fullName" name="nombreCompleto" required>
+
+    <label for="email">Correo Electrónico:</label>
+    <input type="email" id="email" [(ngModel)]="ownerProfile.email" name="email" required>
+
+    <label for="userName">Nombre de Usuario:</label>
+    <input type="text" id="userName" [(ngModel)]="ownerProfile.userName" name="userName" required>
+    
+    <label for="bio">Biografía:</label>
+    <textarea id="bio" [(ngModel)]="ownerProfile.bio" name="bio"></textarea>
+
+    <label for="profilePicture">Foto de Perfil:</label>
+    <input type="file" id="profilePicture" (change)="onFileSelected($event)" name="profilePicture">
+
+    <button type="submit">Actualizar Perfil</button>
+  </form>
+
+  <h2>Propiedades Administradas</h2>
+  <ul class="property-list">
+    <li *ngFor="let property of properties">
+      {{ property.title }}
+      <button (click)="editProperty(property.id)">Editar</button>
+      <button (click)="deleteProperty(property.id)">Eliminar</button>
+    </li>
+  </ul>
+</div>

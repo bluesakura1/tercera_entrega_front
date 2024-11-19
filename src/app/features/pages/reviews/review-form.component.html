@@ -1,0 +1,60 @@
+<main>
+  <form [formGroup]="reviewForm" (ngSubmit)="onSubmit()">
+    <div class="login-container">
+      <h2>Reseña</h2>
+
+      <!-- ID de la Casa -->
+      <div class="form-group">
+        <label for="listingId">ID de la Casa</label>
+        <input 
+          id="listingId" 
+          type="text" 
+          formControlName="listingId" 
+          class="form-control" 
+          required
+        />
+        <div *ngIf="reviewForm.controls['listingId'].invalid && reviewForm.controls['listingId'].touched" class="error-message">
+          El ID de la casa es obligatorio.
+        </div>
+      </div>
+
+      <!-- Calificación -->
+      <div class="form-group">
+        <label for="rating">Calificación</label>
+        <input 
+          id="rating" 
+          type="number" 
+          formControlName="rating" 
+          class="form-control" 
+          min="1" 
+          max="5" 
+          required
+        />
+        <div *ngIf="reviewForm.controls['rating'].invalid && reviewForm.controls['rating'].touched" class="error-message">
+          La calificación es obligatoria.
+        </div>
+      </div>
+
+      <!-- Comentario -->
+      <div class="form-group">
+        <label for="comment">Comentario</label>
+        <textarea 
+          id="comment" 
+          formControlName="comment" 
+          class="form-control" 
+          rows="4" 
+          required
+        ></textarea>
+        <div *ngIf="reviewForm.controls['comment'].invalid && reviewForm.controls['comment'].touched" class="error-message">
+          El comentario es obligatorio.
+        </div>
+      </div>
+
+      <!-- Botón de enviar -->
+      <button type="submit" class="btn btn-primary" [disabled]="reviewForm.invalid">Enviar Reseña</button>
+      <div class="regresar">
+        <p><a routerLink="/home">Regresar</a></p>
+      </div>
+    </div>
+  </form>
+</main>

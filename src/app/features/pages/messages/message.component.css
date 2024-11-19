@@ -1,0 +1,156 @@
+/* Configuración del contenedor principal */
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+main.main-container {
+  width: 100%;
+  height: 100%;
+  background-image: url('https://jzoykxtgshtojpikzhhd.supabase.co/storage/v1/object/public/homes/fondo.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Contenedor de mensajes */
+.message-container {
+  max-width: 800px;
+  width: 90%;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.7); 
+  border-radius: 8px;
+  color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-height: 90%; 
+}
+
+/* Título principal */
+.message-container h2 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Formulario */
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: bold;
+}
+
+textarea.form-control {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  resize: vertical;
+  font-size: 14px;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #333;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+textarea.form-control:focus {
+  outline: none;
+  border: 1px solid #007bff;
+}
+
+/* Botón */
+button[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+button[type="submit"]:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Historial */
+.message-history {
+  margin-top: 20px;
+}
+
+.message-history h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.message-item {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.message-header {
+  font-size: 14px;
+  color: #cccccc;
+}
+
+.message-body p {
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.message-footer {
+  text-align: right;
+  font-size: 12px;
+  color: #bbbbbb;
+}
+
+/* Mensaje vacío */
+.no-messages {
+  text-align: center;
+  font-size: 18px;
+  margin-top: 20px;
+  color: #ffffff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+.regresar a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white; 
+  font-size: 16px;
+  text-decoration: none; 
+  border-radius: 5px; 
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Efecto hover */
+.regresar a:hover {
+  background-color: #0056b3;
+  transform: scale(1.05); 
+}
+
+/* Efecto de enfoque (focus) para accesibilidad */
+.regresar a:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #ffcc00; 
+}

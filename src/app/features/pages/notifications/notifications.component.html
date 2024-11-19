@@ -1,0 +1,27 @@
+<main>
+  <div class="notifications-container">
+    <h2>Notificaciones</h2>
+
+    <!-- Mostrar mensaje si no hay notificaciones -->
+    <div *ngIf="this.booking == 0 && this.messages == 0" class="no-notifications">
+      <p>No tienes notificaciones nuevas.</p>
+    </div>
+
+    <div *ngIf="this.booking > 0 && this.messages > 0" class="no-notifications">
+      <p>tienes notificaciones nuevas.</p>
+    </div>
+    <!-- Mostrar lista de notificaciones -->
+
+    <div class="no-notifications">
+      <p>{{"tienes "+this.booking+ " reservaciones por ver"}}</p>
+      <p>{{"tienes "+this.messages+ " mensajes por Leer"}}</p>
+    </div>
+
+
+
+    <div class="regresar">
+      <p><a routerLink="/home">Regresar</a></p>
+    </div>
+  </div>
+  
+</main>
